@@ -12,11 +12,32 @@ const [coloursData, setColoursData]=useState([])
 const Home=()=>{
 
     useEffect(()=>{
-        axios.get('https://regres.in/api/unknown', {headers:{ 'x-api-key':reqres_a03e8a55035b45b68560b0c30a2aa98e
+        axios.get('https://collectionapi.metmuseum.org/public/collection/v1/objects' 
         
+)
+           
+{
+	"total": 471581,
+	"objectIDs": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		// more results ...
+	]
+}
 
- }})
-           .then(res=>{
+
+
+
+
+.then(res=>{
                 let companyName = "rainbow books";
                 let companyDesc = "We connect readers to their new fav queer reads";
 
