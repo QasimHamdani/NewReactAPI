@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Colours from "./Colour";
+//import Colours from "./Colour";
 import axios from "axios";
 
 const Home = () => {
@@ -11,17 +11,17 @@ const Home = () => {
   const [coloursData, setColoursData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://collectionapi.metmuseum.org/public/collection/v1/objects")
+    axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/23662")
       
         .then((res) => {
            const companyName = "rainbow books";
            const companyDesc = "We connect readers to their new fav queer reads";
+           console.log(res);
 
-           setData({ company: companyName, description: companyDesc });
+          //  setData({ company: companyName, description: companyDesc });
 
         
-           setColoursData(res.data.objectIDs); 
+          //  setColoursData(res.data.objectIDs); 
       })
       .catch((err) => {
         console.log(err);
@@ -32,7 +32,8 @@ const Home = () => {
     <>
       <h1>{data.company}</h1>
       <p>{data.description}</p>
-      <Colours data={coloursData} />
+
+      <p>home</p>
     </>
   );
 };
