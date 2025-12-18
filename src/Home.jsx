@@ -24,6 +24,7 @@ const Home = () => {
           //  setColoursData(res.data.objectIDs); 
       })
       .catch((err) => {
+        
         console.log(err);
       });
   }, []);
