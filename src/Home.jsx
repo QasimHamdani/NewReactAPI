@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = () => {
-  const [data, setData] = useState({
-    company: "",
-    description: "",
+  const [art, setArt] = useState({
+    
   });
 
   const [coloursData, setColoursData] = useState([]);
@@ -14,8 +13,8 @@ const Home = () => {
     axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/23662")
       
         .then((res) => {
-           const companyName = "rainbow books";
-           const companyDesc = "We connect readers to their new fav queer reads";
+           setArt(res.data);
+           setLoading(false);
            console.log(res);
 
           //  setData({ company: companyName, description: companyDesc });
@@ -24,19 +23,16 @@ const Home = () => {
           //  setColoursData(res.data.objectIDs); 
       })
       .catch((err) => {
-        
+
         console.log(err);
+        setLoading(false);
       });
   }, []);
 
-  return (
-    <>
-      <h1>{data.company}</h1>
-      <p>{data.description}</p>
+  if (loading) return <p>Loading</p>
+  if (!art) return <p>No artwork found.</p>
 
-      <p>home</p>
-    </>
-  );
+  
 };
 
 export default Home;
