@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = () => {
-  const [art, setArt] = useState({
-    
-  });
+  const [art, setArt] = useState(null); //
+  const [loading, setLoading] = useState(true); //checks to see if the api is still running
 
-  const [coloursData, setColoursData] = useState([]);
+    
+
+  
 
   useEffect(() => {
     axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/23662")
@@ -31,8 +32,43 @@ const Home = () => {
 
   if (loading) return <p>Loading</p>
   if (!art) return <p>No artwork found.</p>
+return (
+    <>
+      <h2>{art.title}</h2>
 
+      <p>
+        <strong>{art.artistDisplayName || "Unknown artist"}</strong>
+        {art.objectDate && ` , ${art.objectDate}`} 
+      </p>
+      
+
+      {art.primaryImageSmall && (
+        <img
+          src={art.primaryImageSmall}
+          alt={art.title}
+          style={{ maxWidth: 400 }}
+        />
+      )}
+      {art.additionalImages?.length > 0 && (
+        <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
+          {art.additionalImages.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`${art.title} ${index + 1}`}
+              style={{ width: 150 }}
+            />
+          ))}
+        </div>
+              )}
+    </>
+
+    
+  );
   
-};
+};//?. is optional chaining so if nothing is there it 
+// will be undefined instead of an error
+
+//`` $ is template literals allows me to put variables into strings(string interpolation)
 
 export default Home;
