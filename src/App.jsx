@@ -1,8 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client';
 import './App.css'
 import Home from './Home'
-import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login.jsx";
 
@@ -34,22 +32,13 @@ const Button = () => {
 
 function App() {
 
-
-  return (
-    <>
-      <Home/>
-    </>
-  )
-}
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
-
-<Routes>
+return(
+    <Routes>
+      <Route path="/" element={<Home />}/>
       <Route path="/login" element={<Login />} />
 </Routes>
+  );
+}
 
-export default App
+
+export default  App

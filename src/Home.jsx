@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import Colours from "./Colour";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const Home = () => {
   const [art, setArt] = useState(null); //
@@ -34,6 +35,11 @@ const Home = () => {
   if (!art) return <p>No artwork found.</p>
 return (
     <>
+     <div style={{ marginBottom: 16 }}>
+        <Link to="/login">Go to Login</Link>
+      </div>
+
+
       <h2>{art.title}</h2>
 
       <p>
