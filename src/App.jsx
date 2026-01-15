@@ -3,6 +3,9 @@ import './App.css'
 import Home from './Home'
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login.jsx";
+import Word from "./Word.jsx"
+import Ninja from "./Ninja.jsx"
+import Tree from "./Tree.jsx"
 
 const Button = () => {
   const navigate = useNavigate();
@@ -34,8 +37,12 @@ function App() {
 
 return(
     <Routes>
-      <Route path="/" element={<Home />}/>
+      <Route path="/home" element={<Home />}/>
       <Route path="/login" element={<Login />} />
+      <Route path="/word" element={<Word />} />
+      <Route path="/ninja" element={<Ninja />} />
+      <Route path="/tree" element={<Tree />} />
+
 </Routes>
   );
 }

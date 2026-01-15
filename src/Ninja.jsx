@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-const Login = () => {
+const Ninja = () => {
   const [art, setArt] = useState(null); //
   const [loading, setLoading] = useState(true); //checks to see if the api is still running
 
@@ -12,7 +12,7 @@ const Login = () => {
   
 
   useEffect(() => {
-    axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/2362")
+    axios.get("https://collectionapi.metmuseum.org/public/collection/v1/objects/6792")
       
         .then((res) => {
            setArt(res.data);
@@ -36,11 +36,9 @@ const Login = () => {
 return (
     <>
      <div style={{ marginBottom: 16 }}>
-       <Link to="/home">Go to Previous Slide</Link>
-       <p></p>
-        <Link to="/word">Go to Next Slide</Link>
-       
-
+        <Link to="/word">Go to Previous Slide</Link>
+         <p></p>
+        <Link to="/tree">Go to Next Slide</Link>
       </div>
 
 
@@ -82,4 +80,4 @@ return (
 //`` $ is template literals allows me to put variables into strings(string interpolation)
 
 
-export default Login;
+export default Ninja;

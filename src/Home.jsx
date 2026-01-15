@@ -36,7 +36,7 @@ const Home = () => {
 return (
     <>
      <div style={{ marginBottom: 16 }}>
-        <Link to="/login">Go to Login</Link>
+        <Link to="/login">Go to Next Slide</Link>
       </div>
 
 
